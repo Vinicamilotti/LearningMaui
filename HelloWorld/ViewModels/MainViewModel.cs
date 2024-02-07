@@ -11,7 +11,6 @@ namespace HelloWorld.ViewModels
 
         [ObservableProperty]
         string text;
-
         public MainViewModel()
         {
             Text = string.Empty;
@@ -37,6 +36,11 @@ namespace HelloWorld.ViewModels
             {
                 Items.Remove(s);
             }
+        }
+        [RelayCommand]
+        async Task Tap(string s)
+        {
+            await Shell.Current.GoToAsync($"{nameof(DetailsPage)}?Text={s}");
         }
     }
 }
