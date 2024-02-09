@@ -1,33 +1,24 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiceRoller.Model;
 
 namespace DiceRoller.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        List<Roll> rolls;
+        ObservableCollection<Roll> rolls = [];
         [ObservableProperty]
         int diceQnt;
         [ObservableProperty]
         int diceType;
         [ObservableProperty]
-        string modType;
+        string modType = "";
         [ObservableProperty]
-        string modValue;
+        string modValue = "";
         [ObservableProperty]
         int result;
 
-
-
-        public MainViewModel()
-        {
-            diceType = 20;
-            diceQnt = 1;
-            modType = "+";
-            modValue = "0";
-        }
 
         [RelayCommand]
         public void Roll()
@@ -46,7 +37,7 @@ namespace DiceRoller.ViewModel
             DicePool pool = new(DiceType, DiceQnt, ModType, parseMod);
             pool.RollPool();
             Result = (int)pool.Results.FinalResult;
-            Rolls = pool.Results.Rolls;
+            Rolls = new(pool.Results.Rolls);
 
         }
         [RelayCommand]
@@ -68,7 +59,15 @@ namespace DiceRoller.ViewModel
         {
             if (Rolls.Count < 1)
             { return; }
-            await Shell.Current.GoToAsync($"{nameof(Details)}?rollList={Rolls}");
+            await Shell.Current.GoToAsync(nameof(Details), new Dictionary<string, object>
+            {
+                {"RollList", Rolls },
+                {"Result", Result},
+                {"DiceType",DiceType},
+                {"DiceQnt", DiceQnt},
+                {"ModType", ModType },
+                {"ModValue", ModValue},
+            });
         }
     }
 }

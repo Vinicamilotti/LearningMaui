@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.Model
+﻿namespace DiceRoller.ViewModel
 {
     public class Roll
     {
@@ -8,7 +8,7 @@
 
         public Roll(int diceType, int diceIndex)
         {
-            Random random = new Random();
+            Random random = new();
             int roll = random.Next(1, diceType + 1);
 
             RollIndex = diceIndex;

@@ -2,18 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRoller.Details"
+             Title="Details"
              xmlns:namespace="clr-namespace:DiceRoller.ViewModel"
-             x:DataType="namespace:DetailsViewModel"
-             Title="Details">
-    <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding RollList}">
+             x:DataType="namespace:DetailsViewModel">
+    <Grid RowDefinitions="0.12*, 0.76*, 0.12*">
+        <Label Grid.Row="0" FontSize="24" HorizontalOptions="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding DiceQnt}"/>
+                    <Span Text="D"/>
+                    <Span Text="{Binding DiceType}"/>
+                    <Span Text="{Binding ModType}"/>
+                    <Span Text="{Binding ModValue}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding RollList}" VerticalOptions="FillAndExpand">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{}">
-                    <Grid Padding="0,5">
-                        <Label Text="{Binding RollResult }"/>
-                    </Grid>
+                <DataTemplate x:DataType="namespace:Roll">
+                    <Frame>
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding RollIndex}"/>
+                                    <Span Text="th Roll: "/>
+                                    <Span Text="{Binding RollResult}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+        <Button Text="Back" Command="{Binding GoBackCommand}" Grid.Row="2" CornerRadius="1"/>
+    </Grid>
 </ContentPage>

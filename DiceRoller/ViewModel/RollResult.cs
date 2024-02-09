@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.Model
+﻿namespace DiceRoller.ViewModel
 {
     public class RollResult
     {
@@ -11,7 +11,7 @@
             Rolls = [];
         }
 
-        public void addRoll(Roll roll)
+        public void AddRoll(Roll roll)
         {
             Rolls.Add(roll);
         }

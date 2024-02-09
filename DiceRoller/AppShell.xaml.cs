@@ -1,4 +1,6 @@
-﻿namespace DiceRoller
+﻿using DiceRoller.ViewModel;
+
+namespace DiceRoller
 {
     public partial class AppShell : Shell
     {
