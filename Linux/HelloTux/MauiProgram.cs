@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using HelloTux.Services;
+using HelloTux.ViewModel;
 
 namespace HelloTux;
 
@@ -14,6 +16,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+		builder.Services.AddSingleton<MonkeyService>();
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<MainViewModel>();
+
 
 #if DEBUG
 		builder.Logging.AddDebug();
