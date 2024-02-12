@@ -92,7 +92,7 @@ xmlns:model="clr-namespace:HelloTux.Model"
 1) Defining model namespace in `xmlns:model="clr-namespace:HelloTux.Model"`
 2) Creating a collection view
 3) Setting a hardcoded data model
-  - Be aware, for now, the binding is not on the item it-self. However is important to notice: one `x:Array` is delcared, the `Type` property is setted to `x:Type model:Monkey` and then the itens are defined in code for now. Notice that the `Name` and `Image` properties are properties defined in the [Monkey model](../..Linux/HelloTux/Model/Monkey.cs)
+  - Be aware, for now, the binding is not on the item it-self. However is important to notice: one `x:Array` is delcared, the `Type` property is setted to `x:Type model:Monkey` and then the itens are defined in code for now. Notice that the `Name` and `Image` properties are properties defined in the [Monkey model](../../Linux/HelloTux/Model/Monkey.cs)
 4) The `ItemTemplate` declares to the components how he should render the items source data
   - The `Type` of the DataTemplate is difined by `x:DataType="model:Monkey". This tells the .NET compiler that he should look at the Class Monkey to create the databindings
   - On Image there's a simple databinding to the Image property so one is telling the compiler that the `Source` property should be equal to the `Image` property of the Monkey model
