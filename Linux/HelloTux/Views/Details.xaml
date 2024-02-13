@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HelloTux.Details"
+    xmlns:namespace="clr-namespace:HelloTux.ViewModel"
+    xmlns:model="clr-namespace:HelloTux.Model"
+    x:DataType="namespace:DetailsViewModel"
+    Title="{Binding Monkey.Name}">
+      <Grid RowDefinitions="Auto,Auto,*">
+                       <Image Aspect="AspectFill"
+                      HeightRequest="160"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      Source="{Binding Monkey.Image}"
+                      WidthRequest="160"/>
+          <Label Grid.Row="0" Text="Testando"/>
+          <Label Grid.Row="1"
+                 Text="{Binding Monkey.Name}"/>
+
+              <Label  Text="{Binding Monkey.Details}" TextColor="Black"/>
+              <Label  Text="{Binding Monkey.Location}" TextColor="Black"  />
+              <Label  Text="{Binding Monkey.Population}" TextColor="Black" />
+        </Grid>
+        </ContentPage>

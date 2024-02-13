@@ -18,13 +18,13 @@ public static class MauiProgram
 			});
 		builder.Services.AddSingleton<MonkeyService>();
 		builder.Services.AddSingleton<MainPage>();
-		builder.Services.AddSingleton<MainViewModel>();
-
-
+		builder.Services.AddSingleton<MainViewModel>();  
+		builder.Services.AddTransient<DetailsViewModel>();
+		builder.Services.AddTransient<Details>();
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
 
 		return builder.Build();
 	}
-}
+} 
