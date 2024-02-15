@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DiceRoller.MVVM.Model;
 
-namespace DiceRoller.ViewModel
+namespace DiceRoller.MVVM.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {

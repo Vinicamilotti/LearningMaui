@@ -1,4 +1,4 @@
-﻿using DiceRoller.ViewModel;
+﻿using DiceRoller.MVVM.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace DiceRoller

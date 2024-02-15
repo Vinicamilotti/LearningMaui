@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.ViewModel
+﻿namespace DiceRoller.MVVM.Model
 {
     public class DicePool(int diceType, int diceQnt, string modType, int modValue)
     {
@@ -16,7 +16,7 @@
         {
             for (int i = 0; i < diceQnt; i++)
             {
-                Roll roll = new(this.diceType, i + 1);
+                Roll roll = new(diceType, i + 1);
                 Results.AddRoll(roll);
             }
 

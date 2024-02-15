@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.Model
+﻿namespace DiceRoller.MVVM.Model
 {
     public enum ModifierType
     {

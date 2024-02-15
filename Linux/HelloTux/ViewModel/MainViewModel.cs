@@ -10,7 +10,8 @@ public partial class MainViewModel : BaseViewModel
     public ObservableCollection<Monkey> Monkeys { get; } = new();
 
 
-    public Command GetMonkeysCommand {get;}
+    public Command GetMonkeysCommand { get; }
+    public Command GoToDetailsCommand { get; }
     MonkeyService monkeyService;
 
     public MainViewModel(MonkeyService monkeyService)
@@ -18,6 +19,7 @@ public partial class MainViewModel : BaseViewModel
         Title = "Monkey";
         this.monkeyService = monkeyService;
         GetMonkeysCommand = new Command(async () => await GetMonkeysAsync());
+        GoToDetailsCommand = new Command<Monkey>(async (monkey) => await GoToDetailsAsync(monkey));
     }
     async Task GetMonkeysAsync()
     {
@@ -46,6 +48,14 @@ public partial class MainViewModel : BaseViewModel
             IsBusy = false;
         }
 
+    }
+    async Task GoToDetailsAsync(Monkey monkey)
+    {
+        await Shell.Current.GoToAsync(nameof(Details), true, new Dictionary<string, object>
+              {
+                {"Monkey", monkey},
+              }
+      );
     }
 
 }

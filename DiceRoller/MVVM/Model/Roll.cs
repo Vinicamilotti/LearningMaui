@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.ViewModel
+﻿namespace DiceRoller.MVVM.Model
 {
     public class Roll
     {

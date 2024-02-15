@@ -73,11 +73,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Details.xaml">
+	  <MauiXaml Update="MVVM\View\Details.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

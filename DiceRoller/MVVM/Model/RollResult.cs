@@ -1,4 +1,4 @@
-﻿namespace DiceRoller.ViewModel
+﻿namespace DiceRoller.MVVM.Model
 {
     public class RollResult
     {
@@ -24,7 +24,7 @@
                 sum += roll.RollResult;
             }
 
-            this.RollSum = sum;
+            RollSum = sum;
 
             return sum;
 
@@ -36,7 +36,7 @@
             SumRolls();
 
 
-            this.FinalResult = this.RollSum;
+            FinalResult = RollSum;
 
             if (modValue <= 0)
             {
