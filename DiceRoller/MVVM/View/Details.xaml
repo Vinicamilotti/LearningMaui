@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRoller.Details"
              Title="Details"
-             xmlns:namespace="clr-namespace:DiceRoller.ViewModel"
+             xmlns:namespace="clr-namespace:DiceRoller.MVVM.ViewModel"
              x:DataType="namespace:DetailsViewModel">
     <Grid RowDefinitions="0.12*, 0.76*, 0.12*">
         <Label Grid.Row="0" FontSize="24" HorizontalOptions="Center">
@@ -17,23 +17,13 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <CollectionView Grid.Row="1" ItemsSource="{Binding RollList}" VerticalOptions="FillAndExpand">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="namespace:Roll">
-                    <Frame>
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding RollIndex}"/>
-                                    <Span Text="th Roll: "/>
-                                    <Span Text="{Binding RollResult}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </Frame>
+        <ListView ItemsSource="{Binding RollList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding RollList}" Detail="{Binding Age}" />
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
         <Button Text="Back" Command="{Binding GoBackCommand}" Grid.Row="2" CornerRadius="1"/>
     </Grid>
 </ContentPage>

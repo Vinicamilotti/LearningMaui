@@ -7,19 +7,31 @@
     xmlns:model="clr-namespace:HelloTux.Model"
     x:DataType="namespace:DetailsViewModel"
     Title="{Binding Monkey.Name}">
-      <Grid RowDefinitions="Auto,Auto,*">
-                       <Image Aspect="AspectFill"
+    <Grid RowDefinitions="Auto,Auto,*">
+        <BoxView Grid.RowSpan="2" BackgroundColor="DarkRed"/>
+        <Border StrokeShape="RoundRectangle 80"
+        Stroke="White"
+        StrokeThickness="6"
+        HeightRequest="160"
+        WidthRequest="160"
+        Margin="0,8,0,0"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+            <Image Aspect="AspectFill"
                       HeightRequest="160"
                       HorizontalOptions="Center"
                       VerticalOptions="Center"
                       Source="{Binding Monkey.Image}"
                       WidthRequest="160"/>
-          <Label Grid.Row="0" Text="Testando"/>
-          <Label Grid.Row="1"
-                 Text="{Binding Monkey.Name}"/>
+        </Border>
 
-              <Label  Text="{Binding Monkey.Details}" TextColor="Black"/>
-              <Label  Text="{Binding Monkey.Location}" TextColor="Black"  />
-              <Label  Text="{Binding Monkey.Population}" TextColor="Black" />
-        </Grid>
-        </ContentPage>
+        <Label Grid.Row="1"
+                 Text="{Binding Monkey.Name}" Style="{StaticResource Headline}"/>
+        <VerticalStackLayout Grid.Row="3" Padding="10" Spacing="10">
+            <Label  Text="{Binding Monkey.Details}" FontSize="20" HorizontalOptions="Center"/>
+            <Label  Text="{Binding Monkey.Location}" HorizontalOptions="Center" />
+            <Label  Text="{Binding Monkey.Population, StringFormat='Population: {0}'}" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

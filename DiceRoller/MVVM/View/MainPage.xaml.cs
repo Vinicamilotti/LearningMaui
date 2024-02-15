@@ -1,10 +1,9 @@
-﻿using DiceRoller.ViewModel;
+﻿using DiceRoller.MVVM.ViewModel;
 
 namespace DiceRoller
 {
     public partial class MainPage : ContentPage
     {
-
         public MainPage(MainViewModel vm)
         {
             InitializeComponent();
