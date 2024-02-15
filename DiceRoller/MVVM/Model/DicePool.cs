@@ -1,26 +1,26 @@
 ﻿namespace DiceRoller.MVVM.Model
 {
-    public class DicePool(int diceType, int diceQnt, string modType, int modValue)
+    public class DicePool()
     {
-        readonly int diceType = diceType;
-        readonly int diceQnt = diceQnt;
-        readonly string modType = modType;
-        readonly int modValue = modValue;
 
         public RollResult Results { get; } = new RollResult();
 
         public int DiceType { get; set; }
         public int DiceQnt { get; set; }
 
+        public string ModType { get; set; }
+
+        public int ModValue { get; set; }
+
         public RollResult RollPool()
         {
-            for (int i = 0; i < diceQnt; i++)
+            for (int i = 0; i < DiceQnt; i++)
             {
-                Roll roll = new(diceType, i + 1);
+                Roll roll = new(DiceType, i + 1);
                 Results.AddRoll(roll);
             }
 
-            Results.GenerateResult(modType, modValue);
+            Results.GenerateResult(ModType, ModValue);
 
 
             return Results;

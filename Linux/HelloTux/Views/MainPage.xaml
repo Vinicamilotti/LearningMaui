@@ -43,10 +43,12 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Get Monkeys" 
-Command="{Binding GetMonkeysCommand}"
-IsEnabled="{Binding IsNotBusy}"
-Grid.Row="1"
-Grid.Column="0"
-Margin="8"/>
+                Command="{Binding GetMonkeysCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="8"/>
+        <Button Text="Find Closest Monkey"
+                Command="{Binding GetClosetsMonkeyCommand}" Grid.Row="1" Grid.Column="1" Margin="8"/>
     </Grid>
 </ContentPage>                                  

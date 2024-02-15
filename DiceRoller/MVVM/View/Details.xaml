@@ -3,24 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRoller.Details"
              Title="Details"
+             xmlns:model="clr-namespace:DiceRoller.MVVM.Model"
              xmlns:namespace="clr-namespace:DiceRoller.MVVM.ViewModel"
              x:DataType="namespace:DetailsViewModel">
     <Grid RowDefinitions="0.12*, 0.76*, 0.12*">
         <Label Grid.Row="0" FontSize="24" HorizontalOptions="Center">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="{Binding DiceQnt}"/>
+                    <Span Text="{Binding Pool.DiceQnt}"/>
                     <Span Text="D"/>
-                    <Span Text="{Binding DiceType}"/>
-                    <Span Text="{Binding ModType}"/>
-                    <Span Text="{Binding ModValue}"/>
+                    <Span Text="{Binding Pool.DiceType}"/>
+                    <Span Text="{Binding Pool.ModType}"/>
+                    <Span Text="{Binding Pool.ModValue}"/>
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <ListView ItemsSource="{Binding RollList}">
+        <ListView ItemsSource="{Binding Pool.Results.Rolls}" Grid.Row="1">
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding RollList}" Detail="{Binding Age}" />
+                <DataTemplate x:DataType="model:Roll">
+                    <TextCell Text="{Binding RollIndex}" Detail="{Binding RollResult}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
