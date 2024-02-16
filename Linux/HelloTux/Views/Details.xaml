@@ -7,7 +7,7 @@
     xmlns:model="clr-namespace:HelloTux.Model"
     x:DataType="namespace:DetailsViewModel"
     Title="{Binding Monkey.Name}">
-    <Grid RowDefinitions="Auto,Auto,*">
+    <Grid RowDefinitions="Auto,Auto,Auto,*, Auto">
         <BoxView Grid.RowSpan="2" BackgroundColor="DarkRed"/>
         <Border StrokeShape="RoundRectangle 80"
         Stroke="White"
@@ -27,11 +27,11 @@
 
         <Label Grid.Row="1"
                  Text="{Binding Monkey.Name}" Style="{StaticResource Headline}"/>
-        <VerticalStackLayout Grid.Row="3" Padding="10" Spacing="10">
+        <VerticalStackLayout Grid.Row="3" Padding="10" Spacing="10" VerticalOptions="FillAndExpand">
             <Label  Text="{Binding Monkey.Details}" FontSize="20" HorizontalOptions="Center"/>
             <Label  Text="{Binding Monkey.Location}" HorizontalOptions="Center" />
             <Label  Text="{Binding Monkey.Population, StringFormat='Population: {0}'}" HorizontalOptions="Center" />
         </VerticalStackLayout>
-
+        <Button Text="MonkeyMap" Command="{Binding OpenMapCommand}" Grid.Row="4" VerticalOptions="End" />
     </Grid>
 </ContentPage>
