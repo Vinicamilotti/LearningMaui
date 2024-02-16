@@ -4,7 +4,7 @@ The main branch will be always up to date with the latest stage of my studies an
 
 ## Notes
 - [Basic Tutorial](./Notes/dotnetMAUI)
-- [Maui Workshop](./Notes/DotNet-Maui-Workshop)
+- [Maui Workshop](./Notes/Dotnet-Maui-Workshop)
 ## Projects
 - [HelloWorld](./HelloWorld)
 - [DiceRoller](./DiceRoller)
