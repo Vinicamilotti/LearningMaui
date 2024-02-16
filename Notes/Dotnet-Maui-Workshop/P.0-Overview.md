@@ -14,6 +14,7 @@
 - Each plataform has his own approach to managin resources. For example: each plataform has differing image requirements that typically involves creating multiple versions of each images at different resolutions. MAUI single project enables resource files to be stored in a single locations while being consumed on each plataform. This includes fonts, inmages, icons, splash screen an raw assests.
   - **IMPORTANT**: Each image resource file is used as source image, from wich images of the required resolution are generated for each platafor at **build time**
 - Resource files should be placed in the Resource Folder and must have ther build action set correctly.
+  
 |   Resource    |   Build action   |
 |---------------|------------------|
 | App Icon      | MauiIcon         |
