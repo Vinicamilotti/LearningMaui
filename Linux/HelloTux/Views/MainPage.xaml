@@ -39,8 +39,8 @@
                         Grid.Column="1"
                         VerticalOptions="Center"
                         Padding="10">
-                                            <Label  Text="{Binding Name}" TextColor="Black"/>
-                                            <Label  Text="{Binding Location}" TextColor="Black" />
+                                            <Label  Text="{Binding Name}"/>
+                                            <Label  Text="{Binding Location}"  />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Frame>
