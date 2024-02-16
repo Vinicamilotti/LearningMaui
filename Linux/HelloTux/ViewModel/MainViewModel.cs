@@ -7,9 +7,21 @@ namespace HelloTux.ViewModel;
 
 public partial class MainViewModel : BaseViewModel
 {
+    bool isRefreshing;
 
     MonkeyService monkeyService;
     public ObservableCollection<Monkey> Monkeys { get; } = new();
+
+    public bool IsRefreshing
+    {
+        get => isRefreshing;
+        set
+        {
+            isRefreshing = value;
+            OnPropertyChanged();
+        }
+
+    }
     IConnectivity conn;
     IGeolocation geolocation;
 
@@ -58,6 +70,7 @@ public partial class MainViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            IsRefreshing = false;
         }
 
     }
